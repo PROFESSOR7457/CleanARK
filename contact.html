@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Book a Pickup — CleanArk, Noida</title>
+<meta name="description" content="Book a laundry pickup with CleanArk in Noida, or get in touch by phone, email or WhatsApp.">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📞 <a data-bind="contact.phoneDisplay" data-href="contact.phoneLink" data-href-prefix="tel:" href="#">phone</a></span>
+        <span>✉️ <a data-bind="contact.email" data-href="contact.email" data-href-prefix="mailto:" href="#">email</a></span>
+      </div>
+      <div class="topbar-social">
+        <a data-href="social.instagram" href="#">Instagram</a>
+        <a data-href="social.facebook" href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <img data-src="business.logo" src="images/logo.png" alt="CleanArk logo">
+      </a>
+      <ul class="nav-links" data-render="nav"></ul>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" data-whatsapp-link href="#" target="_blank" rel="noopener">Book Pickup</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= PAGE HERO ============================= -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+    <h1>Book a Pickup</h1>
+    <p>Fill in the form below or message us directly — we usually respond within a few hours.</p>
+  </div>
+</section>
+
+<!-- ============================= FORM + INFO ============================= -->
+<section class="section">
+  <div class="container two-col" style="align-items:flex-start;">
+
+    <!-- Booking form -->
+    <div class="form-card">
+      <div class="form-success" id="form-success">Thanks! Your pickup request details are ready. Since this site isn't connected to a backend yet, please also tap "Send via WhatsApp" below so we actually receive your request.</div>
+
+      <form id="booking-form" novalidate>
+        <div class="form-grid">
+          <div class="form-group" data-required="true">
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+            <span class="error-text">Please enter your name.</span>
+          </div>
+          <div class="form-group" data-required="true">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number">
+            <span class="error-text">Please enter a valid phone number.</span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+            <span class="error-text">Please enter a valid email.</span>
+          </div>
+          <div class="form-group" data-required="true">
+            <label for="service">Service Needed <span class="required">*</span></label>
+            <select id="service" name="service" data-render="service-options"></select>
+            <span class="error-text">Please select a service.</span>
+          </div>
+          <div class="form-group full" data-required="true">
+            <label for="address">Pickup Address <span class="required">*</span></label>
+            <textarea id="address" name="address" rows="3" placeholder="House/Flat no., Street, Sector, Noida"></textarea>
+            <span class="error-text">Please enter your pickup address.</span>
+          </div>
+          <div class="form-group" data-required="true">
+            <label for="pickupDate">Preferred Pickup Date</label>
+            <input type="date" id="pickupDate" name="pickupDate">
+            <span class="error-text">Please choose a date.</span>
+          </div>
+          <div class="form-group">
+            <label for="pickupTime">Preferred Time Slot</label>
+            <select id="pickupTime" name="pickupTime">
+              <option value="">Any time</option>
+              <option value="Morning (9am - 12pm)">Morning (9am – 12pm)</option>
+              <option value="Afternoon (12pm - 4pm)">Afternoon (12pm – 4pm)</option>
+              <option value="Evening (4pm - 8pm)">Evening (4pm – 8pm)</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" rows="2" placeholder="Anything we should know — item count, special care instructions, etc."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
+        <button type="button" id="send-whatsapp-btn" class="btn btn-outline btn-block mt-24">Send via WhatsApp Instead</button>
+        <p style="font-size:0.8rem;margin-top:14px;">This form currently only runs in your browser — see <code>README.md</code> for how to connect it to a real backend or form service.</p>
+      </form>
+    </div>
+
+    <!-- Contact info -->
+    <div>
+      <span class="eyebrow">Get in Touch</span>
+      <h2>We're here to help</h2>
+
+      <div class="info-card">
+        <div class="icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p data-bind="contact.addressLine1"></p>
+          <p data-bind="contact.addressLine2"></p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p><a data-bind="contact.phoneDisplay" data-href="contact.phoneLink" data-href-prefix="tel:" href="#"></a></p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <p><a data-bind="contact.email" data-href="contact.email" data-href-prefix="mailto:" href="#"></a></p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🕒</div>
+        <div style="width:100%;">
+          <h4>Working Hours</h4>
+          <div data-render="hours" style="font-size:0.92rem;color:var(--text-muted);"></div>
+        </div>
+      </div>
+
+      <div class="map-frame mt-24">
+        <iframe data-src="contact.mapEmbedUrl" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="CleanArk location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img data-src="business.logo" src="images/logo.png" alt="CleanArk logo">
+        <p data-bind="business.metaDescription"></p>
+        <div class="footer-social">
+          <a data-href="social.instagram" href="#" aria-label="Instagram">📷</a>
+          <a data-href="social.facebook" href="#" aria-label="Facebook">📘</a>
+          <a data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul data-render="nav"></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#wash-fold">Wash &amp; Fold</a></li>
+          <li><a href="services.html#wash-iron">Wash &amp; Iron</a></li>
+          <li><a href="services.html#dry-cleaning">Dry Cleaning</a></li>
+          <li><a href="services.html#steam-press">Steam Pressing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li data-bind="contact.addressLine1"></li>
+          <li data-bind="contact.addressLine2"></li>
+          <li><a data-bind="contact.phoneDisplay" data-href="contact.phoneLink" data-href-prefix="tel:" href="#"></a></li>
+          <li><a data-bind="contact.email" data-href="contact.email" data-href-prefix="mailto:" href="#"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-bind="business.name"></span> © <span data-render="year"></span>. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" data-whatsapp-link href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

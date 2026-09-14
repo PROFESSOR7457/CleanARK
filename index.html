@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanArk — Coming Soon</title>
+<meta name="description" content="CleanArk — premium laundry & dry cleaning in Noida. Our new site is launching soon.">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0c1b45;
+    --blue: #1b3fae;
+    --gold: #e8b923;
+    --text-muted: #7a8092;
+    --border: #ececef;
+    --font-heading: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font-body);
+    background: #ffffff;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px 24px;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  .card { max-width: 440px; width: 100%; }
+
+  /* ================= WASHING MACHINE ================= */
+  .scene {
+    position: relative;
+    width: 190px;
+    margin: 0 auto 36px;
+  }
+  .machine {
+    position: relative;
+    width: 190px;
+    height: 210px;
+    background: linear-gradient(155deg, #ffffff, #eef1f8);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(12, 27, 69, 0.10);
+    animation: wobble 2.6s ease-in-out infinite;
+  }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg) translateX(0); }
+    25%      { transform: rotate(-0.6deg) translateX(-1px); }
+    75%      { transform: rotate(0.6deg) translateX(1px); }
+  }
+  .panel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 14px 0;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 6px rgba(232,185,35,0.7);
+    animation: blink 1.8s ease-in-out infinite;
+  }
+  .dot:nth-child(2) { animation-delay: 0.3s; background: var(--blue); box-shadow: 0 0 6px rgba(27,63,174,0.6); }
+  .dot:nth-child(3) { animation-delay: 0.6s; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .display {
+    margin-left: auto;
+    font-family: var(--font-heading);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .door {
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background: linear-gradient(155deg, #d9dee9, #f4f6fb);
+    box-shadow: 0 8px 18px rgba(12,27,69,0.14), inset 0 0 0 6px #ffffff;
+  }
+  .glass {
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #eaf0ff, #c3cde6 70%);
+    overflow: hidden;
+    box-shadow: inset 0 4px 10px rgba(12,27,69,0.35);
+  }
+  .water {
+    position: absolute;
+    left: -20%;
+    width: 140%;
+    bottom: 0;
+    height: 52%;
+    background: linear-gradient(180deg, rgba(27,63,174,0.55), rgba(12,27,69,0.65));
+  }
+  .water::before {
+    content: "";
+    position: absolute;
+    top: -62%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: radial-gradient(circle at 50% 50%, rgba(27,63,174,0.55) 62%, transparent 63%);
+    animation: slosh 3.2s linear infinite;
+  }
+  @keyframes slosh {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .drum {
+    position: absolute;
+    inset: 0;
+    animation: spin 3.4s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  .cloth {
+    position: absolute;
+    width: 26px;
+    height: 16px;
+    border-radius: 7px;
+    opacity: 0.92;
+  }
+  .c1 { background: var(--gold);  top: 14%; left: 50%; }
+  .c2 { background: var(--blue);  top: 50%; left: 78%; }
+  .c3 { background: #ff8b6b;      top: 78%; left: 42%; }
+  .c4 { background: #6bcfae;      top: 42%; left: 14%; }
+  .c5 { background: var(--navy);  top: 66%; left: 66%; }
+  .shine {
+    position: absolute;
+    top: 8%;
+    left: 14%;
+    width: 30%;
+    height: 22%;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    filter: blur(2px);
+    transform: rotate(-25deg);
+  }
+
+  .feet {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 22px;
+  }
+  .feet span {
+    width: 14px;
+    height: 6px;
+    border-radius: 3px;
+    background: #dfe3ee;
+  }
+
+  .bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .bubbles span {
+    position: absolute;
+    bottom: 46px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(27,63,174,0.35);
+    animation: rise 3.6s ease-in infinite;
+  }
+  .bubbles span:nth-child(1) { left: 74px; width: 5px; height: 5px; animation-delay: 0s; }
+  .bubbles span:nth-child(2) { left: 92px; animation-delay: 0.8s; }
+  .bubbles span:nth-child(3) { left: 108px; width: 4px; height: 4px; animation-delay: 1.6s; }
+  .bubbles span:nth-child(4) { left: 84px; width: 7px; height: 7px; animation-delay: 2.4s; }
+  .bubbles span:nth-child(5) { left: 100px; width: 5px; height: 5px; animation-delay: 3.1s; }
+  @keyframes rise {
+    0%   { transform: translateY(0) scale(1);   opacity: 0; }
+    12%  { opacity: 0.8; }
+    100% { transform: translateY(-90px) scale(0.4); opacity: 0; }
+  }
+
+  /* ================= TEXT ================= */
+  h1 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  p.lead {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .hairline {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 28px;
+  }
+  footer {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: #b7bac4;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="scene">
+      <div class="machine">
+        <div class="panel">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="display">WASH</span>
+        </div>
+        <div class="door">
+          <div class="glass">
+            <div class="water"></div>
+            <div class="drum">
+              <span class="cloth c1"></span>
+              <span class="cloth c2"></span>
+              <span class="cloth c3"></span>
+              <span class="cloth c4"></span>
+              <span class="cloth c5"></span>
+            </div>
+            <div class="shine"></div>
+          </div>
+        </div>
+        <div class="feet"><span></span><span></span></div>
+      </div>
+      <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <h1>Something fresh is coming</h1>
+    <p class="lead">CleanArk — premium laundry &amp; dry cleaning in GreaterNoida. Our new site is on its way.</p>
+    <div class="hairline"></div>
+    <footer>&copy; <span id="year"></span> CleanArk</footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
