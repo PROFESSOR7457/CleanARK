@@ -1,260 +1,1079 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CleanArk — Coming Soon</title>
-<meta name="description" content="CleanArk — premium laundry & dry cleaning in Noida. Our new site is launching soon.">
-<link rel="icon" type="image/png" href="images/favicon-32.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0c1b45;
-    --blue: #1b3fae;
-    --gold: #e8b923;
-    --text-muted: #7a8092;
-    --border: #ececef;
-    --font-heading: 'Poppins', 'Segoe UI', Arial, sans-serif;
-    --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; }
-  body {
-    font-family: var(--font-body);
-    background: #ffffff;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 32px 24px;
-    text-align: center;
-    overflow-x: hidden;
-  }
-  .card { max-width: 440px; width: 100%; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanARK Dry Cleaners | Cleaning Beyond Expectations | Greater Noida West</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="CleanARK Dry Cleaners - Expert care for everything you value. Premium Dry Cleaning, 40-Minute Steam Ironing, Wedding Gowns, Shoes & Bags, Household linens with FREE Doorstep Pickup & Delivery in Greater Noida West." />
+  <meta name="keywords" content="Dry cleaning Greater Noida West, Laundry service Gaur World Smartstreet, Steam ironing 40 min, wedding dress dry clean, shoe cleaning, curtain dry cleaning, CleanARK" />
+  <meta property="og:title" content="CleanARK Dry Cleaners - Cleaning Beyond Expectations" />
+  <meta property="og:description" content="Free Pickup & Delivery | 10% Discount on First Order | 40-Min Express Steam Ironing. Gaur World Smartstreet, Sector 16B Rd, Greater Noida West." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:type" content="website" />
 
-  /* ================= WASHING MACHINE ================= */
-  .scene {
-    position: relative;
-    width: 190px;
-    margin: 0 auto 36px;
-  }
-  .machine {
-    position: relative;
-    width: 190px;
-    height: 210px;
-    background: linear-gradient(155deg, #ffffff, #eef1f8);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    box-shadow: 0 18px 40px rgba(12, 27, 69, 0.10);
-    animation: wobble 2.6s ease-in-out infinite;
-  }
-  @keyframes wobble {
-    0%, 100% { transform: rotate(0deg) translateX(0); }
-    25%      { transform: rotate(-0.6deg) translateX(-1px); }
-    75%      { transform: rotate(0.6deg) translateX(1px); }
-  }
-  .panel {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 12px 14px 0;
-  }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 6px rgba(232,185,35,0.7);
-    animation: blink 1.8s ease-in-out infinite;
-  }
-  .dot:nth-child(2) { animation-delay: 0.3s; background: var(--blue); box-shadow: 0 0 6px rgba(27,63,174,0.6); }
-  .dot:nth-child(3) { animation-delay: 0.6s; }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
-  .display {
-    margin-left: auto;
-    font-family: var(--font-heading);
-    font-size: 0.55rem;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
-  }
+  <!-- Favicon Generated from Logo -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
 
-  .door {
-    position: absolute;
-    top: 38px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 128px;
-    height: 128px;
-    border-radius: 50%;
-    background: linear-gradient(155deg, #d9dee9, #f4f6fb);
-    box-shadow: 0 8px 18px rgba(12,27,69,0.14), inset 0 0 0 6px #ffffff;
-  }
-  .glass {
-    position: absolute;
-    inset: 12px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 32% 28%, #eaf0ff, #c3cde6 70%);
-    overflow: hidden;
-    box-shadow: inset 0 4px 10px rgba(12,27,69,0.35);
-  }
-  .water {
-    position: absolute;
-    left: -20%;
-    width: 140%;
-    bottom: 0;
-    height: 52%;
-    background: linear-gradient(180deg, rgba(27,63,174,0.55), rgba(12,27,69,0.65));
-  }
-  .water::before {
-    content: "";
-    position: absolute;
-    top: -62%;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    background: radial-gradient(circle at 50% 50%, rgba(27,63,174,0.55) 62%, transparent 63%);
-    animation: slosh 3.2s linear infinite;
-  }
-  @keyframes slosh {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-  .drum {
-    position: absolute;
-    inset: 0;
-    animation: spin 3.4s linear infinite;
-  }
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-  .cloth {
-    position: absolute;
-    width: 26px;
-    height: 16px;
-    border-radius: 7px;
-    opacity: 0.92;
-  }
-  .c1 { background: var(--gold);  top: 14%; left: 50%; }
-  .c2 { background: var(--blue);  top: 50%; left: 78%; }
-  .c3 { background: #ff8b6b;      top: 78%; left: 42%; }
-  .c4 { background: #6bcfae;      top: 42%; left: 14%; }
-  .c5 { background: var(--navy);  top: 66%; left: 66%; }
-  .shine {
-    position: absolute;
-    top: 8%;
-    left: 14%;
-    width: 30%;
-    height: 22%;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.55);
-    filter: blur(2px);
-    transform: rotate(-25deg);
-  }
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
 
-  .feet {
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 22px;
-  }
-  .feet span {
-    width: 14px;
-    height: 6px;
-    border-radius: 3px;
-    background: #dfe3ee;
-  }
+  <!-- Font Awesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  .bubbles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  .bubbles span {
-    position: absolute;
-    bottom: 46px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(27,63,174,0.35);
-    animation: rise 3.6s ease-in infinite;
-  }
-  .bubbles span:nth-child(1) { left: 74px; width: 5px; height: 5px; animation-delay: 0s; }
-  .bubbles span:nth-child(2) { left: 92px; animation-delay: 0.8s; }
-  .bubbles span:nth-child(3) { left: 108px; width: 4px; height: 4px; animation-delay: 1.6s; }
-  .bubbles span:nth-child(4) { left: 84px; width: 7px; height: 7px; animation-delay: 2.4s; }
-  .bubbles span:nth-child(5) { left: 100px; width: 5px; height: 5px; animation-delay: 3.1s; }
-  @keyframes rise {
-    0%   { transform: translateY(0) scale(1);   opacity: 0; }
-    12%  { opacity: 0.8; }
-    100% { transform: translateY(-90px) scale(0.4); opacity: 0; }
-  }
-
-  /* ================= TEXT ================= */
-  h1 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.6rem;
-    letter-spacing: -0.01em;
-    margin-bottom: 14px;
-  }
-  p.lead {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 32px;
-  }
-  .hairline {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 28px;
-  }
-  footer {
-    font-size: 0.75rem;
-    letter-spacing: 0.02em;
-    color: #b7bac4;
-  }
-</style>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="card">
-    <div class="scene">
-      <div class="machine">
-        <div class="panel">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="display">WASH</span>
+
+  <!-- ==================== PRELOADER ANIMATION ==================== -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-content">
+      <div class="loader-logo-wrap">
+        <img src="assets/images/logo.png" alt="CleanARK Dry Cleaners" class="loader-logo" />
+        <div class="hanger-sparkle">
+          <span class="sparkle-dot dot-1">✦</span>
+          <span class="sparkle-dot dot-2">✦</span>
+          <span class="sparkle-dot dot-3">✦</span>
         </div>
-        <div class="door">
-          <div class="glass">
-            <div class="water"></div>
-            <div class="drum">
-              <span class="cloth c1"></span>
-              <span class="cloth c2"></span>
-              <span class="cloth c3"></span>
-              <span class="cloth c4"></span>
-              <span class="cloth c5"></span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar-progress" id="loader-bar"></div>
+      </div>
+      <p class="loader-tagline">Cleaning Beyond Expectations...</p>
+    </div>
+  </div>
+
+  <!-- ==================== TOP ANNOUNCEMENT BAR ==================== -->
+  <div class="top-announcement-bar">
+    <div class="container marquee-container">
+      <div class="announcement-content">
+        <span class="badge-pill pulse-glow"><i class="fa-solid fa-gift"></i> SPECIAL OFFER</span>
+        <span class="announce-text"><strong>10% OFF</strong> on Your First Order!</span>
+        <span class="divider">•</span>
+        <span class="announce-text"><i class="fa-solid fa-truck-fast"></i> <strong>FREE</strong> Doorstep Pickup & Delivery</span>
+        <span class="divider">•</span>
+        <span class="announce-text"><i class="fa-solid fa-bolt"></i> <strong>40-Minute</strong> Express Steam Ironing</span>
+        <span class="divider">•</span>
+        <a href="tel:8796702244" class="phone-link"><i class="fa-solid fa-phone-volume"></i> 8796702244</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STICKY HEADER & NAVBAR ==================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <!-- CleanARK Official Logo -->
+      <a href="#hero" class="brand-logo-link">
+        <img src="assets/images/logo.png" alt="CleanARK Dry Cleaners Logo" class="brand-logo-img" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#pricing" class="nav-link">Price List</a></li>
+          <li><a href="#packages" class="nav-link">Family Plans</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#calculator" class="nav-link">Estimate</a></li>
+          <li><a href="#location" class="nav-link">Store & Map</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header CTAs -->
+      <div class="header-actions">
+        <a href="https://wa.me/918796702244?text=Hello%20CleanARK,%20I%20would%20like%20to%20schedule%20a%20free%20pickup%20for%20my%20laundry." 
+           target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-nav">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp Us</span>
+        </a>
+        <a href="#book-pickup" class="btn btn-primary nav-book-btn">
+          <span>Book Pickup</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="mobile-toggle-btn" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <img src="assets/images/logo.png" alt="CleanARK Logo" class="drawer-logo" />
+      <button class="drawer-close-btn" id="drawer-close" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="#hero" class="drawer-link">Home</a></li>
+      <li><a href="#services" class="drawer-link">Services</a></li>
+      <li><a href="#pricing" class="drawer-link">Catalog & Price List</a></li>
+      <li><a href="#packages" class="drawer-link">Family Saver Packages</a></li>
+      <li><a href="#how-it-works" class="drawer-link">How It Works</a></li>
+      <li><a href="#calculator" class="drawer-link">Price Calculator</a></li>
+      <li><a href="#location" class="drawer-link">Store Location & Map</a></li>
+      <li><a href="#contact" class="drawer-link">Contact Us</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="tel:8796702244" class="drawer-contact-btn">
+        <i class="fa-solid fa-phone"></i> Call 8796702244
+      </a>
+      <a href="https://wa.me/918796702244?text=Hi%20CleanARK%20Team,%20I%20want%20to%20book%20a%20doorstep%20pickup." 
+         target="_blank" class="drawer-whatsapp-btn">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+      <p class="drawer-address"><i class="fa-solid fa-location-dot"></i> Gaur World Smartstreet, Sec 16B, Greater Noida West</p>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION WITH FLOATING PARTICLES ==================== -->
+  <section class="hero-section" id="hero">
+    <canvas id="bubble-canvas" class="bubble-canvas"></canvas>
+    <div class="container hero-container">
+      <div class="hero-grid">
+        <!-- Left: Text & Offers -->
+        <div class="hero-content">
+          <div class="badge-wrapper reveal-item">
+            <span class="hero-pill pickup-pill">
+              <i class="fa-solid fa-truck"></i> FREE PICKUP & DELIVERY
+            </span>
+            <span class="hero-pill discount-pill">
+              <i class="fa-solid fa-tag"></i> 10% OFF FIRST ORDER
+            </span>
+            <span class="hero-pill express-pill">
+              <i class="fa-solid fa-stopwatch"></i> 40-MIN STEAM IRON
+            </span>
+          </div>
+
+          <h1 class="hero-title reveal-item">
+            <span class="title-sub">Dry Cleaners & Laundry Spa</span>
+            <span class="title-main">Cleaning Beyond Expectations.</span>
+            <span class="title-highlight">EXPERT CARE FOR EVERYTHING YOU VALUE</span>
+          </h1>
+
+          <p class="hero-desc reveal-item">
+            Greater Noida West's premier fabric care atelier. From bespoke suits, wedding lehengas, and silk sarees to daily laundry, sneakers, and home upholstery — enjoy immaculate cleaning with guaranteed free doorstep pickup & delivery.
+          </p>
+
+          <!-- Quick Action CTAs -->
+          <div class="hero-cta-group reveal-item">
+            <a href="#book-pickup" class="btn btn-primary btn-lg shadow-pulse">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Book Free Pickup Now</span>
+            </a>
+            <a href="#pricing" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-receipt"></i>
+              <span>Explore Full Price List</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Under Hero -->
+          <div class="hero-trust-badges reveal-item">
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-medal"></i></div>
+              <div class="trust-text">
+                <strong>PREMIUM QUALITY</strong>
+                <span>Care for Every Fabric</span>
+              </div>
             </div>
-            <div class="shine"></div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="trust-text">
+                <strong>ON TIME DELIVERY</strong>
+                <span>Always On Time</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-user-gear"></i></div>
+              <div class="trust-text">
+                <strong>EXPERT PROFESSIONALS</strong>
+                <span>Care for Every Fabric</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-shield-virus"></i></div>
+              <div class="trust-text">
+                <strong>SAFE & HYGIENIC</strong>
+                <span>Clean, Safe, Perfect</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="feet"><span></span><span></span></div>
-      </div>
-      <div class="bubbles">
-        <span></span><span></span><span></span><span></span><span></span>
+
+        <!-- Right: Visual Card with Floating Elements -->
+        <div class="hero-visual reveal-item">
+          <div class="hero-image-card">
+            <img src="assets/images/hero-laundry.jpg" alt="CleanARK Luxury Dry Cleaners Showroom" class="hero-main-img" />
+            <div class="img-overlay-gradient"></div>
+
+            <!-- Floating Stamp 1: 10% Off Badge -->
+            <div class="floating-badge badge-discount float-anim-1">
+              <span class="big-percent">10%</span>
+              <span class="badge-sub">DISCOUNT ON<br>FIRST ORDER</span>
+            </div>
+
+            <!-- Floating Stamp 2: 40 Min Express Badge -->
+            <div class="floating-badge badge-express float-anim-2">
+              <i class="fa-solid fa-stopwatch-20"></i>
+              <div>
+                <strong>STEAM IRON</strong>
+                <span>IN 40 MINUTES</span>
+              </div>
+            </div>
+
+            <!-- Floating Card: Doorstep Pickup -->
+            <div class="floating-stat-card float-anim-3">
+              <div class="stat-icon-wrap">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+              </div>
+              <div class="stat-info">
+                <strong>Free Pickup & Delivery</strong>
+                <span>Greater Noida West</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <h1>Something fresh is coming</h1>
-    <p class="lead">CleanArk — premium laundry &amp; dry cleaning in GreaterNoida. Our new site is on its way.</p>
-    <div class="hairline"></div>
-    <footer>&copy; <span id="year"></span> CleanArk</footer>
+    <!-- Wave Separator -->
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+        <path d="M0,32L60,48C120,64,240,96,360,96C480,96,600,64,720,53.3C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ==================== KEY HIGHLIGHTS / STATS COUNTER ==================== -->
+  <section class="stats-section section-padding">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box reveal-on-scroll">
+          <div class="stat-num"><span class="counter" data-target="15000">0</span>+</div>
+          <div class="stat-label">Garments Cleaned</div>
+          <p class="stat-desc">Handled with master fabric care</p>
+        </div>
+        <div class="stat-box reveal-on-scroll">
+          <div class="stat-num"><span class="counter" data-target="40">0</span> Min</div>
+          <div class="stat-label">Express Steam Iron</div>
+          <p class="stat-desc">Ultra-crisp razor finish</p>
+        </div>
+        <div class="stat-box reveal-on-scroll">
+          <div class="stat-num"><span class="counter" data-target="99">0</span>.8%</div>
+          <div class="stat-label">On-Time Deliveries</div>
+          <p class="stat-desc">Punctual doorstep pickup & drop</p>
+        </div>
+        <div class="stat-box reveal-on-scroll">
+          <div class="stat-num"><span class="counter" data-target="100">0</span>%</div>
+          <div class="stat-label">Safe & Hygienic</div>
+          <p class="stat-desc">Clean, safe and skin-friendly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES SECTION (MATCHING FLYER) ==================== -->
+  <section class="services-section section-padding" id="services">
+    <div class="container">
+      <div class="section-heading text-center reveal-on-scroll">
+        <span class="section-tag">COMPREHENSIVE CATALOG</span>
+        <h2 class="section-title">Specialized Care For Everything You Value</h2>
+        <p class="section-subtitle">
+          From heavy wedding lehengas and woolen coats to everyday laundry, shoes, and home curtains — we provide expert cleaning solutions backed by European eco-solvents and specialized Italian machinery.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: Dry Cleaning -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-drycleaning.jpg" alt="Dry Cleaning Service CleanARK" class="service-img" />
+            <span class="service-badge">Starts ₹79+</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-vest-patches"></i></div>
+            <h3 class="service-title">Dry Cleaning</h3>
+            <p class="service-desc">
+              Gentle, organic dry-solvent wash that preserves color depth, silk sheen, and fine thread embroidery without shrinkage or damage.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Men's Suits, Blazers & Kurta Pajamas</li>
+              <li><i class="fa-solid fa-check"></i> Silk Sarees, Blouses & Anarkali Suits</li>
+              <li><i class="fa-solid fa-check"></i> Woolen Overcoats, Sweaters & Pashminas</li>
+            </ul>
+            <a href="#pricing" class="service-link">View Item Rates <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 2: Steam Ironing -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-steam-iron.jpg" alt="Steam Ironing Service CleanARK" class="service-img" />
+            <span class="service-badge badge-accent">In 40 Minutes!</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+            <h3 class="service-title">Steam Ironing</h3>
+            <p class="service-desc">
+              High-pressure Italian steam ironers remove the stubbornest wrinkles, disinfect fabrics, and produce crisp, sharp collar creases.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> 40-Minute Express turnaround available</li>
+              <li><i class="fa-solid fa-check"></i> Zero shine mark or fabric burn guarantee</li>
+              <li><i class="fa-solid fa-check"></i> Per Piece (from ₹25+) or KG options</li>
+            </ul>
+            <a href="#pricing" class="service-link">View Item Rates <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 3: Wedding & Couture Care -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-wedding-dress.jpg" alt="Wedding Dress Cleaning CleanARK" class="service-img" />
+            <span class="service-badge">Bridal Specialist</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-gem"></i></div>
+            <h3 class="service-title">Wedding Dress & Bridal Wear</h3>
+            <p class="service-desc">
+              Heavily beaded wedding gowns, bridal lehengas, sherwanis, and zari sarees undergo microscopic stain inspection and hand-crafted cleaning.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Zari, sequin & stone preservation</li>
+              <li><i class="fa-solid fa-check"></i> Acid-free protective garment wrapping</li>
+              <li><i class="fa-solid fa-check"></i> Bridal Lehenga Dry Clean ₹799+</li>
+            </ul>
+            <a href="#pricing" class="service-link">View Item Rates <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 4: Shoes & Designer Bags -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-shoes-bags.jpg" alt="Shoes & Bags Cleaning CleanARK" class="service-img" />
+            <span class="service-badge">Shoes & Bags</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+            <h3 class="service-title">Bag & Shoe Cleaning</h3>
+            <p class="service-desc">
+              Complete deep scrubbing, sole de-yellowing, suede restoration, deodorization, and conditioning for leather goods, purses, and luggage.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Sport Shoes, Sneakers & Suede Leather</li>
+              <li><i class="fa-solid fa-check"></i> Designer Handbags, Clutches & Wallets</li>
+              <li><i class="fa-solid fa-check"></i> Travel Suitcases & Jute Bags</li>
+            </ul>
+            <a href="#pricing" class="service-link">View Item Rates <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 5: Blankets, Quilts & Linens -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-household.jpg" alt="Household Linens & Curtains Cleaning" class="service-img" />
+            <span class="service-badge">Blanket & Carpet</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-bed"></i></div>
+            <h3 class="service-title">Curtain, Carpet & Blanket</h3>
+            <p class="service-desc">
+              Thermal antibacterial cleansing for heavy winter blankets, rajai/quilts, blackout curtains, plush rugs, and soft toys.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Single & Double Blanket / Quilt Care</li>
+              <li><i class="fa-solid fa-check"></i> Drapes & Window Panels with pleat reset</li>
+              <li><i class="fa-solid fa-check"></i> Dust-mite and allergen sanitization</li>
+            </ul>
+            <a href="#pricing" class="service-link">View Item Rates <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Service 6: Laundry & Wash+Fold -->
+        <div class="service-card reveal-on-scroll">
+          <div class="service-img-wrap">
+            <img src="assets/images/service-delivery.jpg" alt="Doorstep Pickup & Laundry Service" class="service-img" />
+            <span class="service-badge badge-accent">Per KG & Plans</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+            <h3 class="service-title">Laundry Service</h3>
+            <p class="service-desc">
+              Effortless everyday laundry charged transparently per KG or via family monthly packages. Sorted by color, washed separately.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Wash + Fold @ ₹89 / KG</li>
+              <li><i class="fa-solid fa-check"></i> Wash + Steam Iron @ ₹129 / KG</li>
+              <li><i class="fa-solid fa-check"></i> Family Saver Bundles with up to 20% OFF</li>
+            </ul>
+            <a href="#packages" class="service-link">View Packages <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INTERACTIVE CATALOG & PRICE LIST ==================== -->
+  <section class="pricing-section section-padding bg-light" id="pricing">
+    <div class="container">
+      <div class="section-heading text-center reveal-on-scroll">
+        <span class="section-tag">OFFICIAL CATALOG</span>
+        <h2 class="section-title">Itemized Price List</h2>
+        <p class="section-subtitle">
+          Prices directly from our official catalog. Search for your garment or select a category below. Add items to calculate your estimate and book on WhatsApp!
+        </p>
+      </div>
+
+      <!-- Search and Filter Bar -->
+      <div class="price-controls-wrap reveal-on-scroll">
+        <div class="search-input-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="catalog-search" placeholder="Search garment (e.g. Shirt, Saree, Blanket, Shoes, Blazer)..." />
+          <button id="clear-search" class="clear-btn" aria-label="Clear Search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="catalog-tabs" id="catalog-tabs">
+          <button class="tab-btn active" data-category="mens"><i class="fa-solid fa-user-tie"></i> Men's Wear</button>
+          <button class="tab-btn" data-category="womens"><i class="fa-solid fa-person-dress"></i> Women's Wear</button>
+          <button class="tab-btn" data-category="woolens"><i class="fa-solid fa-snowflake"></i> Woolen Wear</button>
+          <button class="tab-btn" data-category="shoes-bags"><i class="fa-solid fa-shoe-prints"></i> Shoes & Bags</button>
+          <button class="tab-btn" data-category="household"><i class="fa-solid fa-couch"></i> Household</button>
+          <button class="tab-btn" data-category="laundry-kg"><i class="fa-solid fa-weight-scale"></i> Per KG Plans</button>
+        </div>
+      </div>
+
+      <!-- Catalog Table Container -->
+      <div class="catalog-table-container reveal-on-scroll">
+        <div class="table-responsive">
+          <table class="catalog-table" id="catalog-table">
+            <thead>
+              <tr>
+                <th>Item / Garment</th>
+                <th>Category</th>
+                <th>Dry Clean Rate</th>
+                <th>Steam Iron Rate</th>
+                <th>Add To Estimate</th>
+              </tr>
+            </thead>
+            <tbody id="catalog-tbody">
+              <!-- Dynamically rendered via script.js from exact flyer data -->
+            </tbody>
+          </table>
+        </div>
+        <div class="catalog-footer-note">
+          <p><i class="fa-solid fa-circle-info"></i> Prices are indicative and may vary based on fabric, stain level, load weight, and Service Type. Final Price will be confirmed after inspection. "T&C" apply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIVE ESTIMATE BASKET & QUICK WHATSAPP BOOK ==================== -->
+  <section class="calculator-section section-padding" id="calculator">
+    <div class="container">
+      <div class="calculator-card reveal-on-scroll">
+        <div class="calc-header">
+          <div>
+            <span class="badge-pill bg-gold"><i class="fa-solid fa-calculator"></i> INSTANT ESTIMATOR</span>
+            <h3 class="calc-title">Your Laundry Estimate Bag</h3>
+            <p class="calc-sub">Click "+ Add" on items in the price list above to calculate your total and book via WhatsApp in 1 click!</p>
+          </div>
+          <button id="calc-clear-btn" class="btn btn-outline-sm"><i class="fa-solid fa-trash-can"></i> Clear Bag</button>
+        </div>
+
+        <div class="calc-body">
+          <div class="calc-items-list" id="calc-items-list">
+            <div class="empty-bag-msg" id="empty-bag-msg">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <p>Your estimate bag is currently empty. Tap <strong>"+ Add"</strong> next to any garment in the price table above!</p>
+            </div>
+          </div>
+
+          <!-- Total Calculation Breakdown -->
+          <div class="calc-summary" id="calc-summary" style="display: none;">
+            <div class="calc-row">
+              <span>Subtotal:</span>
+              <strong id="calc-subtotal">₹0</strong>
+            </div>
+            <div class="calc-row text-success">
+              <span>First Order Discount (10% OFF):</span>
+              <strong id="calc-discount">-₹0</strong>
+            </div>
+            <div class="calc-row text-primary">
+              <span>Doorstep Pickup & Delivery:</span>
+              <strong class="free-text">FREE</strong>
+            </div>
+            <div class="calc-divider"></div>
+            <div class="calc-row calc-total-row">
+              <span>Estimated Payable:</span>
+              <strong id="calc-grand-total">₹0</strong>
+            </div>
+
+            <div class="calc-action-row">
+              <button id="send-calc-whatsapp" class="btn btn-whatsapp btn-lg btn-block">
+                <i class="fa-brands fa-whatsapp"></i> Book This Estimate on WhatsApp (8796702244)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAMILY PACKAGES & PLANS ==================== -->
+  <section class="packages-section section-padding" id="packages">
+    <div class="container">
+      <div class="section-heading text-center reveal-on-scroll">
+        <span class="section-tag">SAVER BUNDLES</span>
+        <h2 class="section-title">Family Saver & Monthly Plans</h2>
+        <p class="section-subtitle">
+          Enjoy hassle-free weekly laundry for your entire household at unbeatable per-KG rates with complimentary pickup and delivery.
+        </p>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Package 1: Regular Family Plan -->
+        <div class="package-card reveal-on-scroll">
+          <div class="package-header">
+            <span class="package-type">REGULAR FAMILY PLAN</span>
+            <h3 class="package-title">Weekly Routine Laundry</h3>
+            <p class="package-sub">WASH + FOLD + IRON</p>
+          </div>
+          <div class="package-pricing">
+            <div class="price-line">
+              <span class="rate-large">₹85</span><span class="per-unit">/- Kg</span>
+              <span class="plan-feature-tag">Wash + Fold</span>
+            </div>
+            <div class="price-line">
+              <span class="rate-large">₹120</span><span class="per-unit">/- Kg</span>
+              <span class="plan-feature-tag">Wash + Iron</span>
+            </div>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check-circle"></i> Inclusive of all regular cloths for iron / fold</li>
+            <li><i class="fa-solid fa-check-circle"></i> Minimum Order of 5kg Per Week</li>
+            <li><i class="fa-solid fa-check-circle"></i> Premium Service @ 30% Extra available</li>
+            <li><i class="fa-solid fa-check-circle"></i> Express Service @ 30% Extra (24 Hour) & 50% (Same Day)</li>
+            <li><i class="fa-solid fa-check-circle"></i> 100% Free Doorstep Pickup & Delivery</li>
+          </ul>
+          <a href="https://wa.me/918796702244?text=Hi%20CleanARK,%20I%20am%20interested%20in%20the%20Regular%20Family%20Plan." 
+             target="_blank" class="btn btn-outline btn-block">Inquire on WhatsApp</a>
+        </div>
+
+        <!-- Package 2: Family Saver Plan (Popular) -->
+        <div class="package-card popular-card reveal-on-scroll">
+          <div class="popular-ribbon">HIGH SAVINGS</div>
+          <div class="package-header">
+            <span class="package-type">FAMILY SAVER PLAN</span>
+            <h3 class="package-title">Bulk Family Saver</h3>
+            <p class="package-sub">WASH + FOLD + IRON</p>
+          </div>
+          <div class="package-tiers">
+            <div class="tier-box">
+              <div class="tier-weight">20 KG</div>
+              <div class="tier-price">₹2,199</div>
+              <div class="tier-rate">(₹109 / KG)</div>
+              <span class="tier-badge">10% OFF</span>
+            </div>
+            <div class="tier-box best-value">
+              <div class="tier-weight">30 KG</div>
+              <div class="tier-price">₹3,099</div>
+              <div class="tier-rate">(₹103 / KG)</div>
+              <span class="tier-badge">15% OFF</span>
+            </div>
+            <div class="tier-box">
+              <div class="tier-weight">40 KG</div>
+              <div class="tier-price">₹3,799</div>
+              <div class="tier-rate">(₹94 / KG)</div>
+              <span class="tier-badge">20% OFF</span>
+            </div>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check-circle"></i> Complete Wash + Fold + Crisp Steam Iron</li>
+            <li><i class="fa-solid fa-check-circle"></i> Up to 20% discount on standard rates</li>
+            <li><i class="fa-solid fa-check-circle"></i> Multiple pickups throughout the month</li>
+            <li><i class="fa-solid fa-check-circle"></i> Premium Service @ 30% Extra</li>
+            <li><i class="fa-solid fa-check-circle"></i> Free Pickup & Delivery in Greater Noida West</li>
+          </ul>
+          <a href="https://wa.me/918796702244?text=Hi%20CleanARK,%20I%20want%20to%20subscribe%20to%20the%20Family%20Saver%20Plan." 
+             target="_blank" class="btn btn-primary btn-block">Choose Saver Plan</a>
+        </div>
+
+        <!-- Package 3: Premium Family Plan -->
+        <div class="package-card reveal-on-scroll">
+          <div class="package-header">
+            <span class="package-type">PREMIUM FAMILY PLAN</span>
+            <h3 class="package-title">VIP Luxury Care</h3>
+            <p class="package-sub">WASH + FOLD + IRON</p>
+          </div>
+          <div class="package-tiers">
+            <div class="tier-box">
+              <div class="tier-weight">20 KG</div>
+              <div class="tier-price">₹2,749</div>
+              <div class="tier-rate">(₹137 / KG)</div>
+              <span class="tier-badge">10% OFF</span>
+            </div>
+            <div class="tier-box">
+              <div class="tier-weight">30 KG</div>
+              <div class="tier-price">₹3,849</div>
+              <div class="tier-rate">(₹128 / KG)</div>
+              <span class="tier-badge">15% OFF</span>
+            </div>
+            <div class="tier-box">
+              <div class="tier-weight">40 KG</div>
+              <div class="tier-price">₹4,599</div>
+              <div class="tier-rate">(₹114 / KG)</div>
+              <span class="tier-badge">20% OFF</span>
+            </div>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Premium Packaging</strong> & individual garment protection</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Care for every cloth separately</strong></li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Priority Service</strong> and fast lane queue</li>
+            <li><i class="fa-solid fa-check-circle"></i> <strong>Free stain check</strong> and precision treatment</li>
+          </ul>
+          <a href="https://wa.me/918796702244?text=Hi%20CleanARK,%20I%20want%20to%20subscribe%20to%20the%20Premium%20Family%20Plan." 
+             target="_blank" class="btn btn-outline btn-block">Choose Premium Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW TO BOOK (4 SIMPLE STEPS) ==================== -->
+  <section class="how-it-works-section section-padding bg-light" id="how-it-works">
+    <div class="container">
+      <div class="section-heading text-center reveal-on-scroll">
+        <span class="section-tag">HOW TO BOOK</span>
+        <h2 class="section-title">Clean Clothes in 4 Simple Steps</h2>
+        <p class="section-subtitle">
+          Relax at home while our team handles pickup, deep cleaning, steaming, and doorstep return.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card reveal-on-scroll">
+          <div class="step-badge">01</div>
+          <div class="step-icon"><i class="fa-solid fa-comment-sms"></i></div>
+          <h3 class="step-title">Send Us Your Item Details</h3>
+          <p class="step-desc">Book through our website, WhatsApp 8796702244, or give us a quick call with your address.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card reveal-on-scroll">
+          <div class="step-badge">02</div>
+          <div class="step-icon"><i class="fa-solid fa-truck"></i></div>
+          <h3 class="step-title">We Will Pick From Your Doorsteps</h3>
+          <p class="step-desc">Our pickup executive arrives at your scheduled time with dedicated laundry bags. 100% Free.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card reveal-on-scroll">
+          <div class="step-badge">03</div>
+          <div class="step-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 class="step-title">Expert Cleaning & Care</h3>
+          <p class="step-desc">Garments undergo specialized fabric examination, eco-friendly stain removal, and steam finishing.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card reveal-on-scroll">
+          <div class="step-badge">04</div>
+          <div class="step-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+          <h3 class="step-title">On Time Delivery at Your Doorstep</h3>
+          <p class="step-desc">Immaculately folded or hung in dust-proof bags, delivered back right on schedule.</p>
+        </div>
+      </div>
+
+      <!-- Steam in 40 Min Express Highlight Banner -->
+      <div class="express-banner reveal-on-scroll">
+        <div class="express-banner-inner">
+          <div class="express-icon-side">
+            <div class="express-clock-icon">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <div>
+              <h3 class="express-title">Steam Iron in 40 Minutes!</h3>
+              <p class="express-text">Instant walk-in steam pressing available at our Gaur World Smartstreet store, or request express same-day return!</p>
+            </div>
+          </div>
+          <div class="express-btn-side">
+            <a href="https://wa.me/918796702244?text=Hello%20CleanARK,%20I%20need%20urgent%20express%20steam%20ironing%20service." 
+               target="_blank" class="btn btn-warning-express">
+              <i class="fa-solid fa-bolt"></i> Request 40-Min Ironing
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STORE LOCATION & GOOGLE MAPS ==================== -->
+  <section class="location-section section-padding" id="location">
+    <div class="container">
+      <div class="location-grid">
+        <!-- Location Details Card -->
+        <div class="location-info-card reveal-on-scroll">
+          <span class="section-tag">VISIT OUR STORE</span>
+          <h2 class="location-title">Conveniently Located in Greater Noida West</h2>
+          <p class="location-desc">
+            Visit our dry cleaning facility in Gaur World Smartstreet or scan the QR code to navigate straight to our doorstep.
+          </p>
+
+          <div class="location-detail-list">
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="loc-content">
+                <strong>Address:</strong>
+                <p>Shop No - AGF-208, Gaur World Smartstreet, Sector 16B Rd, Greater Noida West, Uttar Pradesh 201318</p>
+              </div>
+            </div>
+
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="loc-content">
+                <strong>Phone & WhatsApp:</strong>
+                <p><a href="tel:8796702244">+91 8796702244</a></p>
+              </div>
+            </div>
+
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-clock"></i></div>
+              <div class="loc-content">
+                <strong>Store Timings:</strong>
+                <p>Monday – Sunday: 9:00 AM – 9:30 PM (Open 7 Days a Week)</p>
+              </div>
+            </div>
+
+            <div class="loc-item">
+              <div class="loc-icon"><i class="fa-solid fa-map-pin"></i></div>
+              <div class="loc-content">
+                <strong>Google Map Link:</strong>
+                <p><a href="https://maps.app.goo.gl/fu9HQbEeUBmGVdg69" target="_blank" rel="noopener noreferrer">https://maps.app.goo.gl/fu9HQbEeUBmGVdg69</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="location-actions">
+            <a href="https://maps.app.goo.gl/fu9HQbEeUBmGVdg69" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <i class="fa-solid fa-diamond-turn-right"></i> Open in Google Maps
+            </a>
+            <a href="tel:8796702244" class="btn btn-outline">
+              <i class="fa-solid fa-phone"></i> Call Store Direct
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed / Interactive Preview -->
+        <div class="map-embed-wrapper reveal-on-scroll">
+          <div class="map-card-header">
+            <div class="map-pin-pill">
+              <i class="fa-solid fa-location-crosshairs"></i> CleanARK Dry Cleaners @ Gaur World Smartstreet
+            </div>
+            <a href="https://maps.app.goo.gl/fu9HQbEeUBmGVdg69" target="_blank" class="map-link-btn" title="Open Google Maps">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          
+          <div class="iframe-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=Shop+No+AGF-208,+Gaur+World+Smartstreet,+Sector+16B+Rd,+Greater+Noida+West,+Uttar+Pradesh+201318&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="CleanARK Dry Cleaners Location Map">
+            </iframe>
+          </div>
+
+          <div class="map-card-footer">
+            <a href="https://maps.app.goo.gl/fu9HQbEeUBmGVdg69" target="_blank" class="map-directions-link">
+              <i class="fa-solid fa-route"></i> Get Live Route Directions on Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ONLINE PICKUP BOOKING FORM ==================== -->
+  <section class="booking-section section-padding bg-light" id="book-pickup">
+    <div class="container">
+      <div class="booking-container-card reveal-on-scroll">
+        <div class="booking-grid">
+          <!-- Left: Form Intro & Highlights -->
+          <div class="booking-info-col">
+            <span class="section-tag light-tag">DOORSTEP SERVICE</span>
+            <h2 class="booking-heading">Schedule Your Free Pickup</h2>
+            <p class="booking-text">
+              Fill out this quick form. Your pickup details will be neatly formatted and transmitted to our booking team via WhatsApp for instant confirmation!
+            </p>
+
+            <div class="booking-perks">
+              <div class="perk-item">
+                <i class="fa-solid fa-gift perk-icon"></i>
+                <div>
+                  <strong>10% Discount on First Order</strong>
+                  <p>Applied automatically on your invoice.</p>
+                </div>
+              </div>
+              <div class="perk-item">
+                <i class="fa-solid fa-truck-ramp-box perk-icon"></i>
+                <div>
+                  <strong>Pickup & Delivery FREE</strong>
+                  <p>100% Free Doorstep Pickup & Delivery in Greater Noida West.</p>
+                </div>
+              </div>
+              <div class="perk-item">
+                <i class="fa-solid fa-shield-heart perk-icon"></i>
+                <div>
+                  <strong>Expert Professionals</strong>
+                  <p>Care for Every Fabric guaranteed.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="direct-call-badge">
+              <i class="fa-solid fa-headset"></i>
+              <div>
+                <span>Prefer to call directly?</span>
+                <strong><a href="tel:8796702244">8796702244</a></strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Form -->
+          <div class="booking-form-col">
+            <form id="pickup-form" class="pickup-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="user-name"><i class="fa-solid fa-user"></i> Full Name *</label>
+                  <input type="text" id="user-name" name="name" placeholder="Your Name" required />
+                </div>
+                <div class="form-group">
+                  <label for="user-phone"><i class="fa-solid fa-phone"></i> Phone Number *</label>
+                  <input type="tel" id="user-phone" name="phone" placeholder="10-digit Mobile Number" required pattern="[0-9]{10}" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="user-address"><i class="fa-solid fa-house"></i> Full Address / Society / Flat No. *</label>
+                <input type="text" id="user-address" name="address" placeholder="e.g. Flat 604, Tower 3, Gaur City 2, Greater Noida West" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="service-type"><i class="fa-solid fa-tags"></i> Primary Service Needed *</label>
+                  <select id="service-type" name="service" required>
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="Dry Cleaning (Suits, Sarees, Dresses)">Dry Cleaning (Suits, Sarees, Dresses)</option>
+                    <option value="Steam Ironing (Express 40-Min)">Steam Ironing (Express 40-Min)</option>
+                    <option value="Curtain Cleaning">Curtain Cleaning</option>
+                    <option value="Laundry Service (Wash + Fold)">Laundry Service (Wash + Fold)</option>
+                    <option value="Carpet Cleaning">Carpet Cleaning</option>
+                    <option value="Wedding Dress & Bridal Couture">Wedding Dress & Bridal Couture</option>
+                    <option value="Bag Cleaning & Leather Care">Bag Cleaning & Leather Care</option>
+                    <option value="Blanket & Quilt Cleaning">Blanket & Quilt Cleaning</option>
+                    <option value="Family Saver Monthly Package">Family Saver Monthly Package</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="pickup-date"><i class="fa-solid fa-calendar-days"></i> Preferred Pickup Date *</label>
+                  <input type="date" id="pickup-date" name="date" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pickup-slot"><i class="fa-solid fa-clock"></i> Preferred Time Slot</label>
+                <select id="pickup-slot" name="slot">
+                  <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
+                  <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+                  <option value="Evening (4:00 PM - 8:30 PM)" selected>Evening (4:00 PM - 8:30 PM)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="pickup-notes"><i class="fa-solid fa-comment-dots"></i> Special Instructions (Optional)</label>
+                <textarea id="pickup-notes" name="notes" rows="2" placeholder="e.g. Delicate silk embroidery, coffee stain on jacket, urgent 24-hr return..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg submit-pickup-btn">
+                <i class="fa-brands fa-whatsapp"></i> Confirm & Send Pickup via WhatsApp
+              </button>
+              <p class="form-disclaimer">
+                <i class="fa-solid fa-lock"></i> Your details are confidential. Opens WhatsApp with your pre-formatted order details!
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section class="faq-section section-padding" id="faq">
+    <div class="container faq-container">
+      <div class="section-heading text-center reveal-on-scroll">
+        <span class="section-tag">GOT QUESTIONS?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about our services, turnaround times, and pricing.</p>
+      </div>
+
+      <div class="accordion reveal-on-scroll">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the 10% First Order Discount work?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Every new customer in Greater Noida West automatically receives 10% off their first dry cleaning or laundry order! Simply book via our website or mention it to our executive.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the turnaround time for dry cleaning & steam ironing?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Standard dry cleaning turnaround is 48 to 72 hours. We also offer <strong>Express 24-Hour Service (@ 30% extra)</strong> and <strong>Same-Day Service (@ 50% extra)</strong>. Express Steam Ironing is completed in <strong>40 Minutes</strong> at our store.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is doorstep pickup and delivery truly free?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Free pickup and delivery is provided for residences across Greater Noida West, including Gaur City 1, Gaur City 2, Sector 16B, and nearby residential societies.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do you care for heavy bridal lehengas and silk sarees?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our bridal couture team inspects all zari work, stone fittings, sequins, and lace before treatment. We use specialized low-temperature, hydrocarbon organic cleaning that protects sheen and preserves fabric integrity, finished in acid-free tissue packaging.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <!-- Col 1: About & Logo -->
+        <div class="footer-col footer-about">
+          <img src="assets/images/logo.png" alt="CleanARK Dry Cleaners" class="footer-logo" />
+          <p class="footer-tagline">Cleaning Beyond Expectations</p>
+          <p class="footer-desc">
+            Expert care for everything you value. Premium dry cleaning, 40-minute express steam ironing, wedding wear preservation, shoe spa, and free doorstep pickup.
+          </p>
+          <div class="footer-badges">
+            <span class="f-badge"><i class="fa-solid fa-truck"></i> Free Pickup</span>
+            <span class="f-badge"><i class="fa-solid fa-tag"></i> 10% 1st Order Off</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#pricing">Complete Price List</a></li>
+            <li><a href="#packages">Family Saver Plans</a></li>
+            <li><a href="#calculator">Price Estimator</a></li>
+            <li><a href="#how-it-works">How To Book</a></li>
+            <li><a href="#location">Store Location</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Popular Services</h4>
+          <ul class="footer-links">
+            <li><a href="#pricing">Men's Suits & Blazers</a></li>
+            <li><a href="#pricing">Silk & Heavy Sarees</a></li>
+            <li><a href="#pricing">Bridal Lehengas & Gowns</a></li>
+            <li><a href="#pricing">40-Min Express Steam Iron</a></li>
+            <li><a href="#pricing">Sneakers & Leather Shoes</a></li>
+            <li><a href="#pricing">Blankets & Duvets Dry Clean</a></li>
+            <li><a href="#packages">Wash + Fold / Iron Per KG</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact & Store -->
+        <div class="footer-col footer-contact-col">
+          <h4 class="footer-col-title">Visit & Connect</h4>
+          <p class="footer-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Shop No - AGF-208, Gaur World Smartstreet, Sector 16B Rd, Greater Noida West, Uttar Pradesh 201318</span>
+          </p>
+          <p class="footer-phone">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:8796702244">8796702244</a>
+          </p>
+          <p class="footer-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/918796702244" target="_blank">+91 8796702244</a>
+          </p>
+          <p class="footer-hours">
+            <i class="fa-solid fa-clock"></i>
+            <span>Open All 7 Days: 9:00 AM – 9:30 PM</span>
+          </p>
+          <a href="https://maps.app.goo.gl/fu9HQbEeUBmGVdg69" target="_blank" class="btn btn-outline-sm footer-map-btn">
+            <i class="fa-solid fa-map-location-dot"></i> Open Google Maps Link
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="copyright">&copy; <span id="current-year">2026</span> CleanARK Dry Cleaners. All Rights Reserved.</p>
+        <p class="footer-terms">“T&C” apply | Prices indicative and may vary based on fabric, stain level, load weight, and Service Type.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING QUICK ACTIONS ==================== -->
+  <div class="floating-actions">
+    <!-- Call Button -->
+    <a href="tel:8796702244" class="float-btn float-call" aria-label="Call CleanARK Directly">
+      <i class="fa-solid fa-phone"></i>
+      <span class="float-tooltip">Call 8796702244</span>
+    </a>
+    <!-- WhatsApp Button with Pulsing Wave -->
+    <a href="https://wa.me/918796702244?text=Hello%20CleanARK,%20I%20would%20like%20to%20book%20a%20free%20laundry%20pickup." 
+       target="_blank" rel="noopener noreferrer" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="float-radar"></span>
+      <span class="float-tooltip">Instant WhatsApp Booking</span>
+    </a>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="float-btn float-top" aria-label="Scroll to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
 </body>
 </html>
